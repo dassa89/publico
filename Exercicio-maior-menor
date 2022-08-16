@@ -1,0 +1,15 @@
+a1 = int(input("Primeiro numero: "))
+a2 = int(input("Segundo numero: "))
+a3 = int(input("Terceiro numero: "))
+
+lista = []
+lista.append(a1)
+lista.append(a2)
+lista.append(a3)
+lista.sort()
+
+menor = lista[0]
+maior = lista[2]
+
+print("Maior numero: {0}".format(maior))
+print("Menor numero: {0}".format(menor))

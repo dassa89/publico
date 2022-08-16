@@ -1,0 +1,10 @@
+a1 = 0
+lista = []
+
+while a1 < 3:
+    a2 = int(input("Insira um numero:"))
+    lista.append(a2)
+    a1 += 1
+lista.sort()
+print("Maior numero: {0}".format(lista[2]))
+print("Menor numero: {0}".format(lista[0]))

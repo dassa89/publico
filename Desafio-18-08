@@ -1,0 +1,17 @@
+a1 = int(0)
+count = int(1)
+vet = []
+
+while a1 < 40:
+    a2 = int(input("{0}/40 Insira um valor inteiro:".format(count)))
+    vet.append(a2)
+    a1 += 1
+    count += 1
+
+a1 = 0
+for i in vet:
+    if i < 0:
+        vet[a1] = 0
+    a1 += 1
+
+print(vet)

@@ -1,0 +1,87 @@
+# Importando funcao random para a escolha da maquina:
+import random
+
+# Criando a classe do jogo:
+class jokenpo(object):
+
+# Declarando as variaveis globais para o placar:
+    meuspontos = int(0)
+    pontosmaquina = int(0)
+    rodadas = 0
+
+# Criando a funcao init com variaveis iniciais:
+    def __init__(self, numero):
+        self.numeromaquina = random.randint(1, 3)
+        self.meunumero = numero
+        if self.numeromaquina == 1:
+            self.p2 = "papel"
+        elif self.numeromaquina == 2:
+            self.p2 = "tesoura"
+        elif self.numeromaquina == 3:
+            self.p2 = "pedra"
+        else:
+            # Caso de algum erro me informe o que aconteceu:
+            print(f"maquina retornou um valor inesperado: {self.numeromaquina}")
+            return False
+
+        # Transformando a vantagem crescente em aleatoria conforme as regras do jogo:
+        if self.numeromaquina == 3 and self.meunumero == 1:
+            self.numeromaquina = 0
+        elif self.meunumero == 3 and self.numeromaquina == 1:
+            self.meunumero = 0
+        else:
+            pass
+    # Definindo a ideia do jogo com a funcao call:
+    def __call__(self):
+        print("Vc: " + str(jokenpo.meuspontos) + " x " + str(jokenpo.pontosmaquina) + " :Maquina")
+        print(f"Maquina escolheu: {self.p2}")
+        if self.meunumero > self.numeromaquina:
+            jokenpo.meuspontos += 1
+            print("vc ganhou")
+        elif self.numeromaquina > self.meunumero:
+            jokenpo.pontosmaquina += 1
+            print("vc perdeu")
+        else:
+            print("empate")
+
+    # def __del__(self):
+    #     print("Jogo Encerrado..")
+    #     print(f"Vc: {jokenpo.meuspontos} x {jokenpo.pontosmaquina} :Maquina")
+
+class jokenpo2(jokenpo):
+    def __call__(self):
+        jokenpo.rodadas += 1
+        if jokenpo.rodadas == 10:
+            exit()
+        else:
+            pass
+        print("Vc: " + str(jokenpo.meuspontos) + " x " + str(jokenpo.pontosmaquina) + " :Maquina")
+        print(f"Maquina escolheu: {self.p2}")
+        if self.meunumero > self.numeromaquina:
+            jokenpo.meuspontos += 1
+            print("vc ganhou")
+        elif self.numeromaquina > self.meunumero:
+            jokenpo.pontosmaquina += 1
+            print("vc perdeu")
+        else:
+            print("empate")
+
+
+# Definindo o loop do jogo com as atribuicoes das strings para valor inteiro:
+while True:
+    p1 = input("pedra, papel ou tesoura:")
+    if p1 == "papel":
+        p1 = int(1)
+    elif p1 == "tesoura":
+        p1 = int(2)
+    elif p1 == "pedra":
+        p1 = int(3)
+    elif p1 == "sair":
+        break
+    else:
+        print("Escolha invalida")
+
+# Chamando o jogo com a minha escolha:
+    #jogo = jokenpo(p1)
+    jogo = jokenpo2(p1)
+    jogo()

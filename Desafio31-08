@@ -1,0 +1,24 @@
+class media(object):
+    def __init__(self, lista):
+        self.lista=lista
+
+    def __call__(self, *args, **kwargs):
+        a2 = 0
+        for i in self.lista:
+            a2 = a2 + i
+        a3 = a2/len(self.lista)
+        return(a3)
+
+
+lista = []
+while True:
+    try:
+        a1 = int(input("Digite numeros:"))
+    except:
+        break
+    if a1 == "ok":
+        break
+    lista.append(a1)
+
+iniciar = media(lista)
+print(iniciar())

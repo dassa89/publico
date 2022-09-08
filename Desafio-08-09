@@ -1,0 +1,11 @@
+frase = input("Insira a frase:")
+
+vetor = list(frase)
+
+for i in vetor:
+    if i == " ":
+        vetor.remove(i)
+
+frase = "".join(map(str, vetor))
+
+print(frase)

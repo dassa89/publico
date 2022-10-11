@@ -1,0 +1,16 @@
+import random
+
+letras = ["a","b","c","d","e","f","g","h","i"]
+
+v1 = len(letras)
+
+
+palavra = []
+
+for i in range(v1):
+    v2 = random.randint(0, v1-1)
+    palavra.append(letras[v2])
+
+v3 = "".join(map(str, palavra))
+
+print(v3)
